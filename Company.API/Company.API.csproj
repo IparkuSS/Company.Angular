@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Company.DAL\Company.DAL.csproj" />
+    <ProjectReference Include="..\Company.BLL\Company.BLL.csproj" />
     <ProjectReference Include="..\Company.Logger\Company.Logger.csproj" />
   </ItemGroup>
 
