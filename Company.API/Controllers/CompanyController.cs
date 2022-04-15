@@ -21,7 +21,7 @@ namespace Company.API.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetAllCompany()
         {
-            throw new Exception();
+
             var companyDto = await _companyService.GetAllCompany();
             return Ok(companyDto);
         }

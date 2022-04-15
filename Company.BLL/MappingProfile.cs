@@ -7,11 +7,11 @@ namespace Company.BLL
     {
         public MappingProfile()
         {
-            CreateMap<DAL.Models.Company, CompanyForCreationDto>();
+            CreateMap<CompanyForCreationDto, DAL.Models.Company>();
 
             CreateMap<DAL.Models.Company, CompanyForGetDto>();
 
-            CreateMap<DAL.Models.Company, CompanyForUpdateDto>();
+            CreateMap<CompanyForUpdateDto, DAL.Models.Company>();
 
         }
     }
