@@ -12,10 +12,10 @@ export class AppComponent implements OnInit {
   title = 'company';
   companies: Company[] = [];
   company: Company = {
-    Id: '',
-    Name: '',
-    Country: '',
-    Address: ''
+    id: '',
+    name: '',
+    country: '',
+    address: ''
   }
 
   constructor(private companyService: CompanyService) {
@@ -34,17 +34,25 @@ export class AppComponent implements OnInit {
       );
   }
   onSubmit() {
-    this.companyService.addCompany(this.company)
-      .subscribe(
-        response => {
-          this.getAllCompany();
-          this.company = {
-            Id: '',
-            Name: '',
-            Country: '',
-            Address: ''
-          };
-        })
+
+    if (this.company.id === '') {
+      this.companyService.addCompany(this.company)
+        .subscribe(
+          response => {
+            this.getAllCompany();
+            this.company = {
+              id: '',
+              name: '',
+              country: '',
+              address: ''
+            };
+          });
+    }
+    else {
+      this.updateCompany(this.company);
+    }
+
+
   }
   deleteCompany(id: string) {
     this.companyService.DeleteCompany(id)
@@ -53,6 +61,20 @@ export class AppComponent implements OnInit {
           this.getAllCompany();
         }
       );
+  }
+
+  PopulateFormCompany(company: Company) {
+    this.company = company;
+  }
+  updateCompany(company: Company) {
+    this.companyService.PutCompany(company)
+      .subscribe(
+        response => {
+          this.companyService.getAllCompany();
+
+        }
+      );
+
   }
 }
 

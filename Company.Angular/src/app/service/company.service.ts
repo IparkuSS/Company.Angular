@@ -23,6 +23,10 @@ export class CompanyService {
     return this.http.delete<Company>(this.baseUrl + '/' + id);
 
   }
+  PutCompany(company: Company): Observable<Company> {
 
+    return this.http.put<Company>(this.baseUrl + '/' + company.id, company);
+
+  }
 
 }

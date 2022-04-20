@@ -1,8 +1,8 @@
 export interface Company {
-  Id: string;
-  Name: string;
-  Country: string;
-  Address: string;
+  id: string;
+  name: string;
+  country: string;
+  address: string;
 }
 
 
