@@ -22,15 +22,19 @@
       </form>
     </div>
     <div class="company-grid">
-      <div class="company-row">
+
+      <div class="company-row" *ngFor="let company of companies">
         <div class="company-row-details">
-          <span>sudo</span>
-          <span>sdddudo</span>
+          <span>{{ company.Name }}</span>
+          <span>{{ company.Country }}</span>
+
+
         </div>
         <div class="company-row-action">
           <a><i class="fa-solid fa-trash-can"></i></a>
         </div>
       </div>
+
     </div>
   </div>
 </div>
