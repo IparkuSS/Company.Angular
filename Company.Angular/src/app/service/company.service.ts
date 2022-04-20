@@ -12,4 +12,17 @@ export class CompanyService {
   getAllCompany(): Observable<Company[]> {
     return this.http.get<Company[]>(this.baseUrl);
   }
+  addCompany(company: Company): Observable<Company> {
+
+    return this.http.post<Company>(this.baseUrl, company)
+
+  }
+
+  DeleteCompany(id: string): Observable<Company> {
+
+    return this.http.delete<Company>(this.baseUrl + '/' + id);
+
+  }
+
+
 }

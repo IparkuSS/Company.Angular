@@ -11,6 +11,12 @@ import { CompanyService } from './service/company.service';
 export class AppComponent implements OnInit {
   title = 'company';
   companies: Company[] = [];
+  company: Company = {
+    Id: '',
+    Name: '',
+    Country: '',
+    Address: ''
+  }
 
   constructor(private companyService: CompanyService) {
 
@@ -26,7 +32,27 @@ export class AppComponent implements OnInit {
 
         }
       );
-
+  }
+  onSubmit() {
+    this.companyService.addCompany(this.company)
+      .subscribe(
+        response => {
+          this.getAllCompany();
+          this.company = {
+            Id: '',
+            Name: '',
+            Country: '',
+            Address: ''
+          };
+        })
+  }
+  deleteCompany(id: string) {
+    this.companyService.DeleteCompany(id)
+      .subscribe(
+        response => {
+          this.getAllCompany();
+        }
+      );
   }
 }
 
