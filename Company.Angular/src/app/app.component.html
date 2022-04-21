@@ -23,8 +23,8 @@
     </div>
     <div class="company-grid">
 
-      <div (click)="PopulateFormCompany(company)" class="company-row" *ngFor="let company of companies">
-        <div class="company-row-details">
+      <div class="company-row" *ngFor="let company of companies">
+        <div class="company-row-details" (click)="PopulateFormCompany(company)">
           <span>{{ company.name }}</span>|<span>{{ company.country }}</span>|<span>{{ company.address }}</span>
 
         </div>
